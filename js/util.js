@@ -11,4 +11,7 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-getRandomNumber();
+const checkStringLength = (string, maxLength) => string.length <= maxLength;
+checkStringLength('string', 20);
+
+export {getRandomNumber};

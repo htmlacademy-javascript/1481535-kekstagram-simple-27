@@ -1,3 +1,5 @@
+import {getRandomNumber} from './util.js';
+
 //модуль, который создаёт данные
 const PICTURES_COUNT = 25;
 const DESCRIPTION = 'Отдых летом на море. #египет #чилим';
@@ -11,9 +13,6 @@ const commentsCount = {
   MIN: 0,
   MAX: 200,
 };
-
-const checkStringLength = (string, maxLength) => string.length <= maxLength;
-checkStringLength('string', 20);
 
 let idCounter = 0;
 
@@ -30,4 +29,5 @@ const createPicture = () => {
 
 const createPictures = () => Array.from({length: PICTURES_COUNT}, createPicture);
 
-createPictures();
+export{createPictures};
+
