@@ -1,3 +1,3 @@
-import {createPictures} from './data.js';
+import {renderThumbnails} from './render-thumbnails.js';
 
-createPictures();
+renderThumbnails();
