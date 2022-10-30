@@ -17,4 +17,5 @@ const isEscapeKey = (evt) => {
   return evt.key === 'Escape';
 };
 
-export {getRandomNumber, checkStringLength};
+
+export {getRandomNumber, checkStringLength,isEscapeKey};
