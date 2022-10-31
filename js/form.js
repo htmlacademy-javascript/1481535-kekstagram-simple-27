@@ -33,3 +33,4 @@ userUploadCloseForm.addEventListener('click', () => {
 });
 
 
+export {openUserModal, closeUserModal};
