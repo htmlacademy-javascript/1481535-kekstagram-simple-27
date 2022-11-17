@@ -1,32 +1,39 @@
 const btnMinus = document.querySelector('.scale__control--smaller');
 const btnPlus = document.querySelector('.scale__control--bigger');
 const inputValue = document.querySelector('.scale__control--value');
-const imgUploadPreview = document.querySelector('.img-upload__preview');
+const imgUploadPreview = document.querySelector('.img-upload__preview img');
 
-const scaleControlValue = 100;
-inputValue.value = `${scaleControlValue}%`;
+const SCALE_STEP = 25;
+const DEFAULT_SCALE = 100;
+let currentValue = DEFAULT_SCALE;
 
-btnMinus.addEventListener('click', () => {
-  if (scaleControlValue > 25) {
-    scaleControlValue -= 25;
-    inputValue = `${scaleControlValue}%`;
-    imgUploadPreview.style.transform = `scale(${scaleControlValue / 100})`;
+const scaleImage = (value = DEFAULT_SCALE) => {
+  imgUploadPreview.style.transform = `scale(${value / 100})`;
+  inputValue.value = `${value}%`;
+};
+
+const onMinusButtonClick = () => {
+  if (currentValue > SCALE_STEP) {
+    currentValue = currentValue - SCALE_STEP;
+    scaleImage(currentValue);
   }
-});
+};
 
-btnPlus.addEventListener('click', () => {
-  if(scaleControlValue < 100) {
-    scaleControlValue += 25;
-    inputValue = `${scaleControlValue}%`;
-    imgUploadPreview.style.transform = `scale(${scaleControlValue / 100})`;
+const onPlusButtonClick = () => {
+  if (currentValue < DEFAULT_SCALE) {
+    currentValue = currentValue + SCALE_STEP;
+    scaleImage(currentValue);
   }
-});
+};
 
+const resetScale = () => {
+  scaleImage();
+  currentValue = DEFAULT_SCALE;
+};
 
-// ------------------------------------
-const imgUploadEffects = document.querySelector('.img-upload__effects');
+const addScaleEffect = () => {
+  btnMinus.addEventListener('click', onMinusButtonClick);
+  btnPlus.addEventListener('click', onPlusButtonClick);
+};
 
-//1. Создать объект с ключами id и значением класса, который нужно добавлять;
-//2. если input checked, добавляю класс полю предварительного просмотра (imgUploadPreview).
-
-
+export {resetScale, addScaleEffect};
