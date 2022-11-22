@@ -5,10 +5,11 @@ const imgUploadPreview = document.querySelector('.img-upload__preview img');
 
 const SCALE_STEP = 25;
 const DEFAULT_SCALE = 100;
+const PERCENT_DIVIDER = 100;
 let currentValue = DEFAULT_SCALE;
 
 const scaleImage = (value = DEFAULT_SCALE) => {
-  imgUploadPreview.style.transform = `scale(${value / 100})`;
+  imgUploadPreview.style.transform = `scale(${value / PERCENT_DIVIDER})`;
   inputValue.value = `${value}%`;
 };
 

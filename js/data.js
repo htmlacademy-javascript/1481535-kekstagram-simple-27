@@ -1,6 +1,5 @@
 import {getRandomNumber} from './util.js';
 
-//модуль, который создаёт данные
 const PICTURES_COUNT = 25;
 const DESCRIPTION = 'Отдых летом на море. #египет #чилим';
 

@@ -15,5 +15,6 @@ pristine.addValidator(userUploadFormDescription, validateUserUploadFormDescripti
  createUserUploadFormDescriptionError);
 
 const validateAddForm = () => pristine.validate();
+const resetAddFormValidation = () => pristine.reset();
 
-export {validateAddForm};
+export {validateAddForm, resetAddFormValidation};
