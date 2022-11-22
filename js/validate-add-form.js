@@ -10,9 +10,13 @@ const pristine = new Pristine(userUploadForm, {
 });
 
 const validateUserUploadFormDescription = (value) => value.length >= MIN_VALUE && value.length <= MAX_VALUE;
-const createUserUploadFormDescriptionError = () => `Длина сообщения должна составлять от ${MIN_VALUE} до ${MAX_VALUE} символов`;
-pristine.addValidator(userUploadFormDescription, validateUserUploadFormDescription,
- createUserUploadFormDescriptionError);
+const createUserUploadFormDescriptionError = () =>
+  `Длина сообщения должна составлять от ${MIN_VALUE} до ${MAX_VALUE} символов`;
+pristine.addValidator(
+  userUploadFormDescription,
+  validateUserUploadFormDescription,
+  createUserUploadFormDescriptionError,
+);
 
 const validateAddForm = () => pristine.validate();
 const resetAddFormValidation = () => pristine.reset();
