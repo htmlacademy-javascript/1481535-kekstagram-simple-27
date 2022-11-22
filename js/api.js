@@ -14,10 +14,9 @@ const getData = (onSuccess, onFail) => {
 
 const sendData = (onSuccess, onFail, body) => {
   fetch(SEND_URL, {
-        method: 'POST',
-        body,
-      },
-    )
+    method: 'POST',
+    body,
+  })
     .then((response) => {
       if (response.ok) {
         onSuccess();
@@ -30,7 +29,4 @@ const sendData = (onSuccess, onFail, body) => {
     });
 };
 
-export {
-  getData,
-  sendData
-};
+export {getData, sendData};

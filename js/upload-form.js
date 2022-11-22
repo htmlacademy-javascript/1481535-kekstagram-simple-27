@@ -31,17 +31,17 @@ const closeUserModal = () => {
   resetAddFormValidation();
 };
 
-const onPopupEscKeydown = (evt) => {
+function onPopupEscKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     closeUserModal();
   }
-};
+}
 
-const userUploadCloseButtonClick = (evt) => {
+function userUploadCloseButtonClick(evt) {
   evt.preventDefault();
   closeUserModal();
-};
+}
 
 const onUserUploadInputChange = () => {
   openUserModal();

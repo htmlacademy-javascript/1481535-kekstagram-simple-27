@@ -1,7 +1,5 @@
-
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesList = document.querySelector('.pictures');
-
 
 const renderThumbnail = (item) => {
   const pictureItem = pictureTemplate.cloneNode(true);
@@ -13,7 +11,7 @@ const renderThumbnail = (item) => {
 };
 
 const renderThumbnails = (data) => {
-  data.forEach((item) =>  renderThumbnail(item));
+  data.forEach((item) => renderThumbnail(item));
 };
 
 export {renderThumbnails};
