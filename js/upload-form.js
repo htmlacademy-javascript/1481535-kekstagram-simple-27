@@ -60,4 +60,4 @@ const addUploadFormAction = () => {
   imgUploadEffects.addEventListener('change', onImgUploadEffectsChange);
 };
 
-export {addUploadFormAction};
+export {addUploadFormAction, openUserModal, closeUserModal};
