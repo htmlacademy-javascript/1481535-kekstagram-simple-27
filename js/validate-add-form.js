@@ -1,6 +1,3 @@
-import { sendData } from './api.js';
-import {openUserModal, closeUserModal} from './upload-form.js';
-import {showAlert} from './util.js';
 const MIN_VALUE = 20;
 const MAX_VALUE = 140;
 
@@ -12,27 +9,12 @@ const pristine = new Pristine(userUploadForm, {
   errorTextParent: 'img-upload__text',
 });
 
-
-const setUserFormSubmit = (onSuccess) => {
-  userUploadForm.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-
-    const isValid = pristine.validate();
-    if(isValid) {
-      sendData(
-        () => onSuccess(),
-        () => showAlert('Не удалось загрузить фото, попробуйте ещё раз');
-        new FormData(evt.target),
-      );
-    }
-  });
-};
-
 const validateUserUploadFormDescription = (value) => value.length >= MIN_VALUE && value.length <= MAX_VALUE;
 const createUserUploadFormDescriptionError = () => `Длина сообщения должна составлять от ${MIN_VALUE} до ${MAX_VALUE} символов`;
 pristine.addValidator(userUploadFormDescription, validateUserUploadFormDescription,
  createUserUploadFormDescriptionError);
 
 const validateAddForm = () => pristine.validate();
+const resetAddFormValidation = () => pristine.reset();
 
-export {validateAddForm, setUserFormSubmit};
+export {validateAddForm, resetAddFormValidation};

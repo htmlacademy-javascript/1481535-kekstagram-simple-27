@@ -1,14 +1,19 @@
-const getData = (onSuccess) => {
-  fetch('https://27.javascript.pages.academy/kekstagram-simple/data')
+const GET_URL = 'https://27.javascript.pages.academy/kekstagram-simple/data';
+const SEND_URL = 'https://27.javascript.pages.academy/kekstagram-simple';
+
+const getData = (onSuccess, onFail) => {
+  fetch(GET_URL)
     .then((response) => response.json())
-    .then((photos) => {
-      createPicture(photos);
+    .then((data) => {
+      onSuccess(data);
+    })
+    .catch(() => {
+      onFail();
     });
 };
 
 const sendData = (onSuccess, onFail, body) => {
-  fetch(
-      'https://27.javascript.pages.academy/kekstagram-simple/data', {
+  fetch(SEND_URL, {
         method: 'POST',
         body,
       },
@@ -17,11 +22,11 @@ const sendData = (onSuccess, onFail, body) => {
       if (response.ok) {
         onSuccess();
       } else {
-        onFail('Не удалось загрузить фото, попробуйте ещё раз');
+        onFail();
       }
     })
     .catch(() => {
-      onFail('Не удалось загрузить фото, попробуйте ещё раз');
+      onFail();
     });
 };
 
